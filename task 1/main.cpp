@@ -1,8 +1,7 @@
 #include <iostream>
-#include <unordered_map>
-#include <vector>
+#include "cache.cpp"
 
-struct block {
+/*struct block {
     int val;
     int freq;
  };
@@ -18,11 +17,11 @@ struct cache_st {
 
     cache_st(int sz) : sz_max(sz) {};
 
-    bool check_hit(int val, std::vector <block> & cache, std::unordered_map <int, block*> & hash_) {
+    bool check_hit(int val) {
         //std::cout << "POBEDA111111\n" << val <<"\n";
         if (hash_.find(val) == hash_.end()) {
             //std::cout << "POBEDA222222\n";
-            insert_in_top(val, cache, hash_);
+            insert_in_top(val);
             hash_.insert({val, &cache[0]});
             //std::cout << hash_.find(val)->second->val << "\n" << hash_.find(val)->second->freq << "\n";
             //std::cout << hash_.find(1)->second->val << "\n" << hash_.find(1)->second->freq << "\n";
@@ -47,7 +46,7 @@ struct cache_st {
         };
     };
 
-inline void insert_in_top(int val, std::vector <block> & cache, std::unordered_map <int, block*> & hash_) {
+inline void insert_in_top(int val) {
         int real_size = cache.size();
         int i = real_size;
         block vir = {0, 0};
@@ -73,6 +72,7 @@ inline void insert_in_top(int val, std::vector <block> & cache, std::unordered_m
 };
 
 };
+*/
 
 int main() {
     int size = 0, val = 0, cou = 0, num = 0;
@@ -87,7 +87,7 @@ int main() {
 
     for(int i = 0; i < num; i++) {
         std::cin >> val;
-        if (c.check_hit(val, c.cache, c.hash_))
+        if (c.check_hit(val))
             cou++;
     }
     std::cout << "Hits: " << cou << "\n";
