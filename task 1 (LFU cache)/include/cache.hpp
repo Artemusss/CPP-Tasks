@@ -15,3 +15,5 @@ struct cache_st{
     bool check_hit(int val);
     inline void insert_in_top(int val);
 };
+
+inline int up(const int i);

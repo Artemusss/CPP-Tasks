@@ -1,5 +1,5 @@
 #include <iostream>
-#include "cache.cpp"
+#include "cache.hpp"
 
 int main() {
     int size = 0, val = 0, cou = 0, num = 0;
