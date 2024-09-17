@@ -1,11 +1,13 @@
 #include "cache.hpp"
 #include <unordered_map>
 #include <vector>
+#include <assert.h>
 
 inline int up(const int i) {
+    assert(i > 0);
     return (i - 1) / 2;
 };
-    cache_st::cache_st(int sz) : sz_max(sz) {};
+    cache_st::cache_st(const int sz) : sz_max(sz) {};
 
     bool cache_st::check_hit(const int val) {
         if (hash_.find(val) == hash_.end()) {

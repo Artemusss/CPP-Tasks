@@ -1,4 +1,5 @@
 #include <iostream>
+#include <assert.h>
 #include "cache.hpp"
 
 int main() {
@@ -6,10 +7,12 @@ int main() {
 
     std::cout << "Please, write size of LFU cache\n";
     std::cin >> size;
+    assert(size > 0);
     cache_st c{size};
 
     std::cout << "Write number of values in data\n";
     std::cin >> num;
+    assert(num > 0);
     std::cout << "Write data of int values\n";
 
     for(int i = 0; i < num; i++) {
@@ -17,5 +20,6 @@ int main() {
         if (c.check_hit(val))
             cou++;
     }
+    assert(cou >= 0);
     std::cout << "Hits: " << cou << "\n";
 }
