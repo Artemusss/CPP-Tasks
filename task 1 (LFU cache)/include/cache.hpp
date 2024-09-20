@@ -16,4 +16,6 @@ struct cache_st{
     inline void insert_in_top(int val);
 };
 
+inline int right(const int i);
+inline int left(const int i);
 inline int up(const int i);

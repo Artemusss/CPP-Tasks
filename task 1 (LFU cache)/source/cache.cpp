@@ -1,12 +1,18 @@
 #include "cache.hpp"
 #include <unordered_map>
 #include <vector>
+#include <iostream>
 #include <assert.h>
 
 inline int up(const int i) {
-    assert(i > 0);
     return (i - 1) / 2;
-};
+}
+inline int left(const int i) {
+	return 2 * i + 1;
+}
+inline int right(const int i) {
+	return 2 * i + 2;
+}
     cache_st::cache_st(const int sz) : sz_max(sz) {};
 
     bool cache_st::check_hit(const int val) {
@@ -18,13 +24,24 @@ inline int up(const int i) {
         else {
             hash_.find(val)->second->freq++;
             int i = hash_.find(val)->second - &cache[0];
-            while((i != 0) || (cache[i].freq < cache[up(i)].freq)) {
+            while(((right(i) <= sz_max) || (left(i) <= sz_max)) && ((cache[i].freq > cache[left(i)].freq) || (cache[i].freq > cache[right(i)].freq))) {
                 block vir = {0, 0};
                 vir = cache[i];
-                cache[i] = cache[up(i)];
-                cache[up(i)] = vir;
-                hash_.find(cache[i].val)->second = &cache[i];
-                i = up(i);
+                if (cache[i].freq > cache[left(i)].freq){
+                    cache[i] = cache[left(i)];
+                    cache[left(i)] = vir;
+                    hash_.find(cache[i].val)->second = &cache[i];
+                    hash_.find(cache[left(i)].val)->second = &cache[left(i)];
+                    i = left(i);
+                }
+                else{
+                    cache[i] = cache[right(i)];
+                    cache[right(i)] = vir;
+                    hash_.find(cache[i].val)->second = &cache[i];
+                    hash_.find(cache[right(i)].val)->second = &cache[right(i)];
+                    i = right(i);
+
+                }
             }
             return true;
         };
@@ -37,10 +54,12 @@ inline void cache_st::insert_in_top(const int val) {
         if (sz_max > real_size) {
             cache.push_back({val, 0});
             while(cache[0].val != val) {
+                std::cout << "POBEDA111";
                 vir = cache[i];
                 cache[i] = cache[up(i)];
                 cache[up(i)] = vir;
                 hash_.find(cache[i].val)->second = &cache[i];
+                hash_.find(cache[up(i)].val)->second = &cache[up(i)];
                 i = up(i);
             };
             return;

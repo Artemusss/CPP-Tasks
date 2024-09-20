@@ -7,6 +7,7 @@ int main() {
 
     std::cout << "Please, write size of LFU cache\n";
     std::cin >> size;
+    assert(1 == 2);
     assert(size > 0);
     cache_st c{size};
 
@@ -19,6 +20,7 @@ int main() {
         std::cin >> val;
         if (c.check_hit(val))
             cou++;
+        std::cout << i << "\n";
     }
     assert(cou >= 0);
     std::cout << "Hits: " << cou << "\n";

@@ -3,7 +3,6 @@
 #include<algorithm>
 #include<assert.h>
 
-// TODO: сделать отдельно лучший кеш
 
 int chech_hits_best_cache(std::vector<int> inp, int size_inp, std::vector<int> cache, int sz) {
     int cou = 0;

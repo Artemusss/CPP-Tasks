@@ -6,6 +6,7 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
   /usr/include/c++/13/bits/alloc_traits.h \
@@ -354,19 +355,21 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
 
 /usr/include/c++/13/bits/ios_base.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
+/usr/include/c++/13/bits/char_traits.h:
 
-/usr/include/c++/13/bits/ptr_traits.h:
+/usr/include/c++/13/bits/hashtable_policy.h:
 
-/usr/include/alloca.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
 
-/usr/include/c++/13/bits/stl_iterator_base_types.h:
+/usr/include/c++/13/bits/basic_ios.tcc:
 
-/usr/include/c++/13/bits/ostream_insert.h:
+/usr/include/c++/13/bits/nested_exception.h:
 
-/usr/include/c++/13/bits/hashtable.h:
+/usr/include/c++/13/bits/memory_resource.h:
+
+/usr/include/wchar.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
@@ -384,6 +387,12 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
 
 /usr/include/c++/13/bits/stringfwd.h:
 
+/usr/include/assert.h:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/asm-generic/errno-base.h:
+
 /usr/include/c++/13/cwctype:
 
 /usr/include/c++/13/bits/predefined_ops.h:
@@ -396,9 +405,7 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
 
 /usr/include/c++/13/cwchar:
 
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/c++/13/bits/hash_bytes.h:
+/usr/include/alloca.h:
 
 /usr/include/c++/13/bits/move.h:
 
@@ -414,7 +421,29 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
 
 /usr/include/c++/13/bits/enable_special_members.h:
 
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+/usr/include/c++/13/bits/basic_string.h:
+
 /usr/include/stdc-predef.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
+
+/usr/include/c++/13/bits/ptr_traits.h:
+
+/usr/include/c++/13/bits/ostream_insert.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/c++/13/bits/exception.h:
+
+/usr/include/c++/13/streambuf:
+
+/usr/include/c++/13/bits/hashtable.h:
 
 /usr/include/c++/13/bits/localefwd.h:
 
@@ -429,30 +458,6 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
 /home/daddy/Документы/rep\ cpp/CPP-Tasks/task\ 1\ (LFU\ cache)/main.cpp:
 
 /usr/include/c++/13/clocale:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
-
-/usr/include/c++/13/bits/basic_ios.tcc:
-
-/usr/include/c++/13/bits/nested_exception.h:
-
-/usr/include/c++/13/bits/memory_resource.h:
-
-/usr/include/wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
-/usr/include/c++/13/bits/char_traits.h:
-
-/usr/include/c++/13/bits/hashtable_policy.h:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/c++/13/streambuf:
-
-/usr/include/c++/13/bits/exception.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
@@ -486,6 +491,8 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
 
 /usr/include/c++/13/bits/alloc_traits.h:
 
+/usr/include/c++/13/bits/stl_iterator_base_types.h:
+
 /usr/include/c++/13/bits/stl_uninitialized.h:
 
 /usr/include/c++/13/bits/unordered_map.h:
@@ -518,9 +525,9 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
-/usr/include/c++/13/bits/charconv.h:
-
 /usr/include/c++/13/bits/stl_pair.h:
+
+/usr/include/c++/13/bits/charconv.h:
 
 /usr/include/c++/13/cstdio:
 
@@ -625,7 +632,3 @@ CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tas
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/usr/include/c++/13/bits/basic_string.h:
-
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
