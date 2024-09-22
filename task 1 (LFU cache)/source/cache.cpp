@@ -17,124 +17,114 @@ inline int right(const int i) {
 
     bool cache_st::check_hit(const int val) {
         if (hash_.find(val) == hash_.end()) {
-            insert_in_top(val);
-            hash_.insert({val, &cache[0]});
+            std::cout << "52" << "\n";
+            int i = insert_in_top(val);
+            hash_.find(val)->second = &cache[i];
+            assert(hash_.find(val)->second->val == val);
+            assert(hash_.find(val)->second - &cache[0] >= 0);
+            assert(hash_.find(val) != hash_.end());
             return false;
         }
         else {
+            std::cout << "HERE  " << cache[0].val << "\n";
+            assert(hash_.find(val)->second->val == val);
+            std::cout << hash_.find(val)->second - &cache[0] << "\n";
+            std::cout << hash_.find(val)->second->val << "\n";
             hash_.find(val)->second->freq++;
+            assert(hash_.find(val)->second->val == val);
             int i = hash_.find(val)->second - &cache[0];
-            while(((right(i) <= sz_max) || (left(i) <= sz_max)) && ((cache[i].freq > cache[left(i)].freq) || (cache[i].freq > cache[right(i)].freq))) {
+            std::cout << i << "\n";
+            assert(i >= 0);
+            assert(i < sz_max);
+            while(left(i) < sz_max) {
                 block vir = {0, 0};
                 vir = cache[i];
-                if (cache[i].freq > cache[left(i)].freq){
+                if (cache[i].freq >= cache[left(i)].freq) {
                     cache[i] = cache[left(i)];
                     cache[left(i)] = vir;
                     hash_.find(cache[i].val)->second = &cache[i];
-                    hash_.find(cache[left(i)].val)->second = &cache[left(i)];
+                    assert(hash_.find(cache[i].val) != hash_.end());
+                    assert(i < sz_max);
                     i = left(i);
                 }
-                else{
-                    cache[i] = cache[right(i)];
-                    cache[right(i)] = vir;
-                    hash_.find(cache[i].val)->second = &cache[i];
-                    hash_.find(cache[right(i)].val)->second = &cache[right(i)];
-                    i = right(i);
-
+                else if (right(i) < sz_max){
+                    if (cache[i].freq >= cache[left(i)].freq){
+                        cache[i] = cache[right(i)];
+                        cache[right(i)] = vir;
+                        hash_.find(cache[i].val)->second = &cache[i];
+                        assert(i < sz_max);
+                        assert(hash_.find(cache[i].val) != hash_.end());
+                        i = right(i);
+                    }
+                    else
+                        break;
                 }
+                else
+                    break;
             }
+            hash_.find(cache[i].val)->second = &cache[i];
             return true;
         };
     };
 
-inline void cache_st::insert_in_top(const int val) {
+inline int cache_st::insert_in_top(const int val) {
         int real_size = cache.size();
+        assert(real_size >= 0);
         int i = real_size;
+        std::cout << i << "\n";
         block vir = {0, 0};
         if (sz_max > real_size) {
             cache.push_back({val, 0});
-            while(cache[0].val != val) {
-                std::cout << "POBEDA111";
-                vir = cache[i];
-                cache[i] = cache[up(i)];
-                cache[up(i)] = vir;
-                hash_.find(cache[i].val)->second = &cache[i];
-                hash_.find(cache[up(i)].val)->second = &cache[up(i)];
-                i = up(i);
+            while(i > 0) {
+                if (cache[up(i)].freq != 0) {
+                    vir = cache[i];
+                    cache[i] = cache[up(i)];
+                    cache[up(i)] = vir;
+                    hash_.find(cache[i].val)->second = &cache[i];
+                    assert(hash_.find(cache[i].val) != hash_.end());
+                    assert(i > 0);
+                    std::cout << "1 " << cache[i].val << " " << cache[i].freq << "\n";
+                    std::cout << "2 " << cache[up(i)].val << " " << cache[up(i)].freq << "\n";
+                    i = up(i);
+                }
+                else 
+                    break;
             };
-            return;
+            std::cout << i << "\n";
+            hash_.insert({val, &cache[i]});
+            hash_.find(val)->second = &cache[i];
+            return i;
         }
         else {
             hash_.erase(cache[0].val);
-            cache[0] = {val, 0};
-            return;
-        }
-};
+            assert(hash_.find(cache[0].val) == hash_.end());
+            int q = 0;
+            while(left(q) < sz_max) {
+                if (cache[left(q)].freq == 0) {
+                    block vir = {0, 0};
+                    vir = cache[left(q)];
+                    cache[left(q)] = cache[q];
+                    cache[q] = vir;
+                    hash_.find(cache[q].val)->second = &cache[q];
+                    q = left(q);
+                }
+                else if (right(q) < sz_max) {
+                    if ((cache[right(q)].freq == 0)){
+                        block vir = {0, 0};
+                        vir = cache[right(q)];
+                        cache[right(q)] = cache[q];
+                        cache[q] = vir;
+                        hash_.find(cache[q].val)->second = &cache[q];
+                        q = right(q);
+                    }
+                    else
+                        break;
+                }
+                else
+                    break;
 
-
-
-/* The dumbest debug ever been
-
-struct cache_st {
-    int sz_max;
-    std::vector <block> cache;
-    std::unordered_map <int, block*> hash_;
-
-    cache_st(int sz) : sz_max(sz) {};
-
-    bool check_hit(int val) {
-        //std::cout << "POBEDA111111\n" << val <<"\n";
-        if (hash_.find(val) == hash_.end()) {
-            //std::cout << "POBEDA222222\n";
-            insert_in_top(val);
-            hash_.insert({val, &cache[0]});
-            //std::cout << hash_.find(val)->second->val << "\n" << hash_.find(val)->second->freq << "\n";
-            //std::cout << hash_.find(1)->second->val << "\n" << hash_.find(1)->second->freq << "\n";
-            return false;
-        }
-        else {
-            //std::cout << hash_.size() << "\n";
-            hash_.find(val)->second->freq++;
-            //std::cout << "POBEDA7777777\n" << cache[1].freq << "\n" << cache[1].val << "\n" << hash_.find(val)->second->freq << "\n";
-            int i = hash_.find(val)->second - &cache[0];
-            //std::cout << "POBEDA88888\n" << i << "\n";
-            while((i != 0) || (cache[i].freq < cache[up(i)].freq)) {
-                block vir = {0, 0};
-                vir = cache[i];
-                cache[i] = cache[up(i)];
-                cache[up(i)] = vir;
-                hash_.find(cache[i].val)->second = &cache[i];
-                i = up(i);
             }
-            //std::cout << "POBEDA333333\n";
-            return true;
-        };
-    };
-
-inline void insert_in_top(int val) {
-        int real_size = cache.size();
-        int i = real_size;
-        block vir = {0, 0};
-        if (sz_max > real_size) {
-           // std::cout << "POBEDA444444\n";
-            cache.push_back({val, 0});
-            while(cache[0].val != val) {
-                vir = cache[i];
-                cache[i] = cache[up(i)];
-                cache[up(i)] = vir;
-                hash_.find(cache[i].val)->second = &cache[i];
-                i = up(i);
-            };
-            //std::cout << "POBEDA555555\n" << cache[0].val << "\n" << cache[0].freq << "\n";
-            return;
-        }
-        else {
-            //std::cout << "POBEDA666666\n" << cache[0].val << "\n" << cache[0].freq << "\n";
-            hash_.erase(cache[0].val);
-            cache[0] = {val, 0};
-            return;
+            hash_.insert({val, &cache[q]});
+            return q;
         }
 };
-
-};
-*/

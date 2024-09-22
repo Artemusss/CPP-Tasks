@@ -13,7 +13,7 @@ struct cache_st{
 
     cache_st(int sz);
     bool check_hit(int val);
-    inline void insert_in_top(int val);
+    inline int insert_in_top(int val);
 };
 
 inline int right(const int i);

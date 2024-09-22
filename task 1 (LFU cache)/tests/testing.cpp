@@ -29,7 +29,7 @@ int main() {
         break;
     
     default:
-        cout << "You write wrong number of test" << "\n";
+        cout << "Wrong number of test" << "\n";
         break;
     }
     cout << inp.is_open() << " " << ans_file.is_open() << "\n";
