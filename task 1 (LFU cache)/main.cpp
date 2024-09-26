@@ -7,7 +7,7 @@ int main() {
 
     std::cin >> size;
     assert(size > 0);
-    cache_st c{size};
+    LFU<int> c{size};
 
     std::cin >> num;
     assert(num > 0);

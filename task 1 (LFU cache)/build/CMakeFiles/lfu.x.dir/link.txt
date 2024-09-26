@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/lfu.x.dir/main.cpp.o -o lfu.x  libLFU.a 
+/usr/bin/c++ -g CMakeFiles/lfu.x.dir/main.cpp.o -o lfu.x  -lLFU 

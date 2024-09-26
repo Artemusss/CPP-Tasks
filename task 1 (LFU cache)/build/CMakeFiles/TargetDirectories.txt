@@ -1,4 +1,3 @@
-/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/build/CMakeFiles/LFU.dir
 /home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/build/CMakeFiles/lfu.x.dir
 /home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/build/CMakeFiles/edit_cache.dir
 /home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/build/CMakeFiles/rebuild_cache.dir

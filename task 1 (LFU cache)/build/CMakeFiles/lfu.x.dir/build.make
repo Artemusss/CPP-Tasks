@@ -92,7 +92,6 @@ lfu_x_EXTERNAL_OBJECTS =
 
 lfu.x: CMakeFiles/lfu.x.dir/main.cpp.o
 lfu.x: CMakeFiles/lfu.x.dir/build.make
-lfu.x: libLFU.a
 lfu.x: CMakeFiles/lfu.x.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable lfu.x"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lfu.x.dir/link.txt --verbose=$(VERBOSE)

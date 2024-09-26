@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named LFU
-
-# Build rule for target.
-LFU: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LFU
-.PHONY : LFU
-
-# fast build rule for target.
-LFU/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LFU.dir/build.make CMakeFiles/LFU.dir/build
-.PHONY : LFU/fast
-
-#=============================================================================
 # Target rules for targets named lfu.x
 
 # Build rule for target.
@@ -166,30 +153,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lfu.x.dir/build.make CMakeFiles/lfu.x.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-source/cache.o: source/cache.cpp.o
-.PHONY : source/cache.o
-
-# target to build an object file
-source/cache.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LFU.dir/build.make CMakeFiles/LFU.dir/source/cache.cpp.o
-.PHONY : source/cache.cpp.o
-
-source/cache.i: source/cache.cpp.i
-.PHONY : source/cache.i
-
-# target to preprocess a source file
-source/cache.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LFU.dir/build.make CMakeFiles/LFU.dir/source/cache.cpp.i
-.PHONY : source/cache.cpp.i
-
-source/cache.s: source/cache.cpp.s
-.PHONY : source/cache.s
-
-# target to generate assembly for a file
-source/cache.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LFU.dir/build.make CMakeFiles/LFU.dir/source/cache.cpp.s
-.PHONY : source/cache.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -198,14 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... LFU"
 	@echo "... lfu.x"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... source/cache.o"
-	@echo "... source/cache.i"
-	@echo "... source/cache.s"
 .PHONY : help
 
 
