@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I"/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)" -I"/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/./include"
 
-CXX_FLAGS = -g -std=gnu++17
+CXX_FLAGS = -g -std=gnu++20
 
