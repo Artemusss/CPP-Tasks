@@ -24,9 +24,9 @@ int main() {
     int val, counter = 0;
     for(int i = 0; i < num; i++) {
         std::cin >> val;
-        std::cout << "Number of value inp: " << i << "  Value: " << val << '\n';
+        //std::cout << "Number of value inp: " << i << "  Value: " << val << '\n';
         counter += c.check_hit(val);
-        std::cout << "Hits now: " << counter << '\n';
+        //std::cout << "Hits now: " << counter << '\n';
     }
     std::cout << "Hits: " << counter << '\n';
 }
