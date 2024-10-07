@@ -69,28 +69,28 @@ include CMakeFiles/lfu.x.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lfu.x.dir/flags.make
 
-CMakeFiles/lfu.x.dir/main.cpp.o: CMakeFiles/lfu.x.dir/flags.make
-CMakeFiles/lfu.x.dir/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tasks/task\ 1\ (LFU\ cache)/main.cpp
-CMakeFiles/lfu.x.dir/main.cpp.o: CMakeFiles/lfu.x.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lfu.x.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lfu.x.dir/main.cpp.o -MF CMakeFiles/lfu.x.dir/main.cpp.o.d -o CMakeFiles/lfu.x.dir/main.cpp.o -c "/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/main.cpp"
+CMakeFiles/lfu.x.dir/src/main.cpp.o: CMakeFiles/lfu.x.dir/flags.make
+CMakeFiles/lfu.x.dir/src/main.cpp.o: /home/daddy/Документы/rep\ cpp/CPP-Tasks/task\ 1\ (LFU\ cache)/src/main.cpp
+CMakeFiles/lfu.x.dir/src/main.cpp.o: CMakeFiles/lfu.x.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lfu.x.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lfu.x.dir/src/main.cpp.o -MF CMakeFiles/lfu.x.dir/src/main.cpp.o.d -o CMakeFiles/lfu.x.dir/src/main.cpp.o -c "/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/src/main.cpp"
 
-CMakeFiles/lfu.x.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lfu.x.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/main.cpp" > CMakeFiles/lfu.x.dir/main.cpp.i
+CMakeFiles/lfu.x.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lfu.x.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/src/main.cpp" > CMakeFiles/lfu.x.dir/src/main.cpp.i
 
-CMakeFiles/lfu.x.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lfu.x.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/main.cpp" -o CMakeFiles/lfu.x.dir/main.cpp.s
+CMakeFiles/lfu.x.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lfu.x.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/src/main.cpp" -o CMakeFiles/lfu.x.dir/src/main.cpp.s
 
 # Object files for target lfu.x
 lfu_x_OBJECTS = \
-"CMakeFiles/lfu.x.dir/main.cpp.o"
+"CMakeFiles/lfu.x.dir/src/main.cpp.o"
 
 # External object files for target lfu.x
 lfu_x_EXTERNAL_OBJECTS =
 
-lfu.x: CMakeFiles/lfu.x.dir/main.cpp.o
+lfu.x: CMakeFiles/lfu.x.dir/src/main.cpp.o
 lfu.x: CMakeFiles/lfu.x.dir/build.make
 lfu.x: CMakeFiles/lfu.x.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/daddy/Документы/rep cpp/CPP-Tasks/task 1 (LFU cache)/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable lfu.x"

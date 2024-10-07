@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/lfu.x.dir/main.cpp.o -o lfu.x  -lLFU 
+/usr/bin/c++ -g CMakeFiles/lfu.x.dir/src/main.cpp.o -o lfu.x 

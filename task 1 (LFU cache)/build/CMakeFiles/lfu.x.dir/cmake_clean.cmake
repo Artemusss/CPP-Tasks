@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lfu.x.dir/main.cpp.o"
-  "CMakeFiles/lfu.x.dir/main.cpp.o.d"
+  "CMakeFiles/lfu.x.dir/src/main.cpp.o"
+  "CMakeFiles/lfu.x.dir/src/main.cpp.o.d"
   "lfu.x"
   "lfu.x.pdb"
 )

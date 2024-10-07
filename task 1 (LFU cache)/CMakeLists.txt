@@ -1,14 +1,12 @@
 cmake_minimum_required(VERSION 3.11)
 
- set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 20)
 
 project(LFU_cache_&_analysis)
 
 set(INC_DIR
-    ${CMAKE_SOURCE_DIR} ./include
+    ${CMAKE_SOURCE_DIR}/include
 )
 
-include_directories(${INC_DIR})
-
-add_executable(lfu.x main.cpp)
-target_link_libraries(lfu.x LFU)
+add_executable(lfu.x ${PROJECT_SOURCE_DIR}/src/main.cpp)
+target_include_directories(lfu.x PRIVATE ${INC_DIR}) #+ PRIVATE, PUBLIC, INTERFACE: find out the difference

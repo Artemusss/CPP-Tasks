@@ -1,2 +1,0 @@
-/usr/bin/ar qc libLFU.a CMakeFiles/LFU.dir/source/cache.cpp.o
-/usr/bin/ranlib libLFU.a
