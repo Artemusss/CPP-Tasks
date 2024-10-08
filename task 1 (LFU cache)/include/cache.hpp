@@ -19,7 +19,7 @@ template <typename T> class LFU { // two template parameters: one for keys, one 
     struct freq_node {
         std::list<node> list_node;
         std::size_t freq;
-        freq_node(std::size_t freq_) : freq(freq_) {}
+        explicit freq_node(std::size_t freq_) : freq(freq_) {}
     };
 
     std::size_t sz_max_; 

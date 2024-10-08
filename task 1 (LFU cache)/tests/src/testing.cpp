@@ -41,7 +41,7 @@ int main() {
         hits_lfu += c.check_hit(val);
         data_val.push_back(val);
     }
-    hits_best = check_hits_best_cache(data_val, num, cache, sz);
+    hits_best = check_hits_ideal_cache(data_val, num, cache, sz);
 
     ans_file >> ans;
     if (ans == hits_lfu)

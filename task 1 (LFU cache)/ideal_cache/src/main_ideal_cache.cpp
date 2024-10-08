@@ -30,6 +30,6 @@ int main() {
     }
 
     int hits;
-    hits = check_hits_best_cache(data, num, cache, sz);
+    hits = check_hits_ideal_cache(data, num, cache, sz);
     std::cout << "Number of hits: " << hits << '\n';
 }
