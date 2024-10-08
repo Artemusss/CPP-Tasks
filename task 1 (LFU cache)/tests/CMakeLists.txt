@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.11)
 
- set(CMAKE_CXX_STANDARD 17)
-
+set(CMAKE_CXX_STANDARD 20)
 project(Testing)
 
 set(INC_DIR
@@ -12,10 +11,9 @@ include_directories(${INC_DIR})
 
 set(SOURCE
     ../best_cache/best_cache.cpp
-    ../source/cache.cpp
 )
 
 add_library(TEST STATIC ${SOURCE})
 
 add_executable(test.x testing.cpp)
-target_link_libraries(test.x TEST)
+target_include_directories(lfu.x PRIVATE ${INC_DIR})

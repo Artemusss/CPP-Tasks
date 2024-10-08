@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/best.x.dir/main_best_cache.cpp.o -o best.x  libBEST.a 
