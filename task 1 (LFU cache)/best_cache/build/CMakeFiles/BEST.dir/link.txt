@@ -1,2 +1,0 @@
-/usr/bin/ar qc libBEST.a CMakeFiles/BEST.dir/best_cache.cpp.o
-/usr/bin/ranlib libBEST.a
