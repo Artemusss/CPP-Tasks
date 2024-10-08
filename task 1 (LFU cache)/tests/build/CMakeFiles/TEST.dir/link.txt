@@ -1,2 +1,0 @@
-/usr/bin/ar qc libTEST.a "CMakeFiles/TEST.dir/home/daddy/Документы/rep_cpp/CPP-Tasks/task_1_(LFU_cache)/best_cache/best_cache.cpp.o" "CMakeFiles/TEST.dir/home/daddy/Документы/rep_cpp/CPP-Tasks/task_1_(LFU_cache)/source/cache.cpp.o"
-/usr/bin/ranlib libTEST.a
