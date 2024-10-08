@@ -10,10 +10,10 @@ set(INC_DIR
 include_directories(${INC_DIR})
 
 set(SOURCE
-    ../best_cache/best_cache.cpp
+    ../ideal_cache/src/ideal_cache.cpp
 )
 
 add_library(TEST STATIC ${SOURCE})
 
-add_executable(test.x testing.cpp)
-target_include_directories(lfu.x PRIVATE ${INC_DIR})
+add_executable(test.x ${CMAKE_SOURCE_DIR}/src/testing.cpp)
+target_include_directories(test.x PRIVATE ${INC_DIR})
