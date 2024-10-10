@@ -3,6 +3,8 @@
 
 #include "cache.hpp"
 
+int get_page(const int& key) {return key;};
+
 int main() {
 
     std::size_t size;
@@ -12,7 +14,7 @@ int main() {
         return 1;
     }
 
-    LFU<int> c{size};
+    LFU<int, int> c{size, get_page};
 
     int num;
     std::cin >> num;

@@ -6,6 +6,8 @@
 #include "../ideal_cache/src/ideal_cache.cpp"
 #include "../include/cache.hpp"
 
+int get_page(const int& key) {return key;};
+
 int main() {
     int nm = 0;
     std::cout << "Write number of test (in range 1-3)" << "\n";
@@ -34,7 +36,7 @@ int main() {
     int sz = 0, num = 0, hits_best = 0, hits_lfu = 0, val = 0, ans = -1;;
     std::vector<int> data_val, cache;
     inp >> sz >> num;
-    LFU<int> c{sz};
+    LFU<int, int> c{sz, get_page};
     for(int i = 0; i < num; i++) {
         inp >> val;
         std::cout << val << "\n";

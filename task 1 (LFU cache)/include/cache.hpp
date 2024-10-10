@@ -6,28 +6,35 @@
 #include <list>
 #include <iterator>
 #include <cstddef>
+#include <functional>
 
-template <typename T> class LFU { // two template parameters: one for keys, one for pages
+template <typename page_T, typename key_T> class LFU {
     struct freq_node;
     
     using freq_iterator = typename std::list<freq_node>::iterator;
+
     struct node {
-        T val;
+        key_T val;
+        page_T page;
         freq_iterator head;
     };
     
     struct freq_node {
         std::list<node> list_node;
         std::size_t freq;
+
         explicit freq_node(std::size_t freq_) : freq(freq_) {}
     };
 
+    using get_page_T = typename std::function<page_T (const key_T&)>;
+
     std::size_t sz_max_; 
-    std::unordered_map<T, typename std::list<node>::iterator> hash_;
+    std::unordered_map<key_T, typename std::list<node>::iterator> hash_;
     std::list<freq_node> list_freq_;
+    get_page_T get_page_;
 
     public:
-    explicit LFU(std::size_t size) : sz_max_(size) {}
+    explicit LFU(std::size_t size, get_page_T function) : sz_max_(size), get_page_(function) {}
 
     void hash_dump() const {
         std::cout << '\n';
@@ -46,7 +53,7 @@ template <typename T> class LFU { // two template parameters: one for keys, one 
         std::cout << '\n';
     }
 
-    bool check_hit(const T &val) {
+    bool check_hit(const key_T &val) {
         auto hash_it = hash_.find(val);
         if (hash_it == hash_.end()) {
             if(hash_.empty()) {
@@ -58,7 +65,7 @@ template <typename T> class LFU { // two template parameters: one for keys, one 
             } else {
                 freq_node &first_freq_node = list_freq_.front();
                 std::list<node> &list_node_first = first_freq_node.list_node;
-                T &del_val = list_node_first.front().val;
+                key_T &del_val = list_node_first.front().val;
 
                 hash_.erase(del_val);
                 list_node_first.erase(list_node_first.begin());
@@ -69,7 +76,7 @@ template <typename T> class LFU { // two template parameters: one for keys, one 
                     list_freq_.emplace_front(0);
             }
 
-            list_freq_.front().list_node.emplace_back(val, list_freq_.begin());
+            list_freq_.front().list_node.emplace_back(val, get_page_(val), list_freq_.begin());
             hash_.insert({val, std::prev(list_freq_.front().list_node.end())});
             return false;
         } else {
@@ -78,16 +85,16 @@ template <typename T> class LFU { // two template parameters: one for keys, one 
 
             if (auto max_freq_it = std::prev(list_freq_.end()); head_it == max_freq_it) {
                 auto &max_freq_node = list_freq_.emplace_back(max_freq_it->freq + 1);
-                max_freq_node.list_node.emplace_back(val, std::next(max_freq_it));
+                max_freq_node.list_node.emplace_back(val, get_page_(val), std::next(max_freq_it));
             }
             else {
                 auto next_head_it = std::next(head_it);
                 if ((head_it->freq + 1) == (next_head_it->freq)) {
-                    next_head_it->list_node.emplace_back(val, next_head_it);
+                    next_head_it->list_node.emplace_back(val, get_page_(val), next_head_it);
                 } else {
                     list_freq_.emplace(next_head_it, head_it->freq + 1);
                     auto new_next_head_it = std::next(head_it);
-                    new_next_head_it->list_node.emplace_back(val, new_next_head_it);    
+                    new_next_head_it->list_node.emplace_back(val, get_page_(val), new_next_head_it);    
                 }
             }
 
